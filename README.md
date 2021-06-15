@@ -26,10 +26,10 @@ For Windows:
 Activate the environment:
 
 For MacOS and Linux:
-```source env/bin/activate```
+```source nameofenv/bin/activate```
 
 For Windows:
-```.\env\Scripts\activate```
+```.\nameofenv\Scripts\activate```
 
 Install the dependencies required for this project:
 
@@ -46,7 +46,7 @@ It should prompt a message telling you where the API is located on your personal
 
 ### Dockerizing the app
 
-To put this app in a container that can run on Google Cloud Platform, we write a Dockerfile that explains the steps necessary to build an image of this project and then run that image in a container. This can also be tested locally (make sure you have Docker installed and **running**):
+To put this app in a container that can run on Google Cloud Platform, we write a Dockerfile that explains the steps necessary to build an image of this project and then run that image in a container. This can also be tested locally (make sure you have Docker installed and **running**: https://www.docker.com/):
 
 ```docker build -t myimagename .```
 
@@ -58,9 +58,9 @@ This creates a container ```mycontainername``` from the ```myimagename``` image 
 
 ### Deploying on Google Cloud
 
-Finally, to make the API available to anyone (with an internet connection), we deploy the docker container to Google Cloud Platform. There are multiple ways to do so: using Google Cloud Run, Google App Engine, Google Container Registry. Here we show how to use Google Cloud Run. Make sure you have a Google Cloud Platform account set up **with a billing account**. When you first sign up, GCP offers 300$ of free credits.
+Finally, to make the API available to anyone (with an internet connection), we deploy the docker container to Google Cloud Platform: https://cloud.google.com/. There are multiple ways to do so: using Google Cloud Run, Google App Engine or Google Container Registry. Here we show how to use Google Cloud Run. Make sure you have a Google Cloud Platform account set up **with a billing account**. When you first sign up, GCP offers 300$ of free credits.
 
-The concept is simple: Instead of building the docker image and running a container from it on our local computer, we ask Google to do it using the Google Cloud Console. This enables us to run commands in our terminal to interact with Google Cloud Platform.
+The concept is simple: Instead of building the docker image and running a container from it on our local computer, we ask Google to do it using the Google Cloud Console: https://cloud.google.com/sdk/docs/install. This enables us to run commands in our terminal to interact with Google Cloud Platform.
 
 The commands are:
 
@@ -73,7 +73,7 @@ The commands are:
 Now you need to tell GCP to build your image and run your container within the project you chose previously. Google often requires that you enable a lot of services for it to run something for you. While trying to build the image, it might warn you about this and offer to enable the required services. In this project, it seems that you need to enable:
 - **service usage api**
 - **cloud run api**
-- **billing** (I think this cannot be enabled through the console, you need to do it on their website)
+- **billing** (I think this cannot be enabled through the console, you need to do it on their website).
 
 To build the image:
 
