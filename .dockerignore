@@ -1,0 +1,7 @@
+#Which files to ignore
+
+request.py
+.git
+.gitignore
+.vscode
+__pycache__

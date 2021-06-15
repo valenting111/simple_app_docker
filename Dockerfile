@@ -1,9 +1,7 @@
-FROM python:3.7
+FROM python:3.7-slim
+
+COPY . ./
 
 RUN pip install -r requirements.txt
 
-EXPOSE 80
-
-COPY ./ ./
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD exec gunicorn --bind :$PORT --workers 1 --worker-class uvicorn.workers.UvicornWorker  --threads 8 main:app
