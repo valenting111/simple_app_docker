@@ -6,5 +6,5 @@ COPY . ./
 #Install the necessary dependencies
 RUN pip install -r requirements.txt
 
-#Command to execute our container with. TODO: explain port mapping
+#Command to execute our container.
 CMD exec gunicorn --bind :$PORT --workers 1 --worker-class uvicorn.workers.UvicornWorker  --threads 8 main:app
